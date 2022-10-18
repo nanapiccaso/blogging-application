@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+
+<title>Sign up</title>
+<style>
+	.center{
+		width:450px;
+	}
+</style>
+{% endblock %}
+
+
+{% block body %}
+<div class="container">
+
+
+<div class="center">
+	<h1>Sign up</h1>
+	<br>
+	<form action="/signup" method="POST">
+		{{ form.hidden_taq }}	
+
+		<div class="txt_field">
+		{{ form.username( class="input-field", placeholder="username") }}
+
+		<span></span>					
+		</div>
+		<br>
+		<div class="txt_field">
+		{{ form.email(class="input-field", placeholder="email") }}
+	
+		<span></span>					
+		</div>
+		<br>
+		<div class="txt_field">
+		{{ form.password(class="input-field", placeholder="password") }}	
+		<span></span>				
+		<br>
+		<br>
+		<br>
+		</div>
+		<div class="pass">
+		   <input type ="checkbox" required name="terms">
+			i agree to <a>terms</a>
+		</div>
+		{{form.submit(value="signup")}}
+
+		<div class='signup_link'>
+			Already have an account? <a href="/login">log in</a>
+		</div>		
+	</form>
+			
+</div>
+</div>
+		
+{% endblock %}
